@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% block head %}
+<link href="/static/css/userdata.css" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block content %}
+<div id="content">
+<div id="left">
+<div class="container">
+<div class="post">
+
+    <div class="postcontent">
+    	{% if erros %}
+    	<p>No such user</p>
+    	{% else %}
+      	<h2>{{ curuser.username }}'s user data</h2>
+        <p id="currentrank">Current rank: {{ current_rank }}</p>
+        <div id="leftprofile">
+ 		<p>Nickname: {{ curuser.get_profile.nick_name }}</p>
+        <p>School: {{ curuser.get_profile.school }}</p>
+        <p>Email: {{ curuser.email }}</p>
+        <p>Motto: {{ curuser.get_profile.motto }}</p>
+        </div>
+        <div id="rightresults">
+        <p>Problems solved: <b>{{ problem_solved }}</b></p>
+        <p>Total submissions: {{ total_submission }}</p>
+        <table id="summarytable">
+        <tr class="ac">
+        	<th>Accepted</th>
+            <td>{{ ac_cnt }}</td>
+        </tr>
+        <tr class="wa">
+        	<th>Wrong Answer</th>
+            <td>{{ wa_cnt }}</td>
+        </tr>
+        <tr class="tle">
+        	<th>Time Limit Exceed</th>
+            <td>{{ tle_cnt }}</td>
+        </tr>
+        <tr class="mle">
+        	<th>Memory Limit Exceed</th>
+            <td>{{ mle_cnt }}</td>
+        </tr>
+        <tr class="re">
+        	<th>Runtime Error</th>
+            <td>{{ re_cnt }}</td>
+        </tr>
+        <tr class="ce">
+        	<th>Compile Error</th>
+            <td>{{ ce_cnt }}</td>
+        </tr>
+        </table>
+        </div>
+        
+        <div id="solvedlist">
+        <h3>List of solved problems:</h3>
+        <table>
+        {% for row in rows %}
+        <tr>
+        	{% for ele in row %}
+        	<td width="12%"><a href="/show_problem/{{ ele }}">{{ ele }}</a></td>
+        	{% endfor %}
+        </tr>
+        {% endfor %}
+        </table>
+        </div>
+        {% endif %}
+    </div>
+  <div class="clear"></div>
+
+</div>
+</div>
+</div>
+
+<div class="clear"></div>
+
+</div>
+{% endblock %}

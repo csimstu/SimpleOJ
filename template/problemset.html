@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block head %}
+<link href="/static/css/problemset.css" rel="stylesheet" type="text/css" />
+{% endblock %}
+{% block content %}
+<div id="content">
+<div id="left">
+<div class="container">
+<div class="post">
+
+    <div class="postcontent">
+      <h2>Problemset</h2>
+ 	<div class="problemlist">
+    	<table>
+        	<tr>
+            	<th>ID</th>
+                <th>Title</th>
+                <th>Solved</th>
+        	</tr>
+        	{% for x in info %}
+            <tr class="alt{{ x.odd }}">
+            	<td class="probid">{{ x.id }}</td>
+                <td><a href="/show_problem/{{ x.id }}">{{ x.title }}</a></td>
+                <td class="usersolved">{{ x.solved_cnt }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    </div>
+  <div class="clear"></div>
+
+</div>
+</div>
+</div>
+
+<div class="clear"></div>
+
+</div>
+{% endblock %}
