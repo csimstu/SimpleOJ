@@ -1,1 +1,3 @@
-This is README.
+SimpleOJ is a non-profitable Online Judge for OI teachers and students dedicating in OI to solve problems, hold contests, and have fun. It is designed for Chengdu No.7 High School as a contribution.
+
+Current progress: basic modes added(nearly covers all the functions in PKU,ZOJ); whole structure recreated to be more maintainable; Lack of beauty.
